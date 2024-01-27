@@ -1,25 +1,22 @@
 .main {
+  padding: 30px;
+}
+
+.main h1 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
-}.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  gap: 50px;
 }
 
 .post {
-  width: 100%;
+  width: 50%;
   border: solid 1px #fafafa;
   border-radius: 5px;
   padding: 30px 50px;
-  width: 100%;
 }
 
 .post h2 {
