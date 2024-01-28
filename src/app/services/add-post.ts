@@ -13,5 +13,5 @@ export async function addPost(post: IPost) {
         body: JSON.stringify(post)
     });
     
-    return await response.json();
+    return await response.text();
 }

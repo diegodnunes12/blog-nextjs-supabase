@@ -1,26 +1,36 @@
+"use client";
 import styles from "../page.module.css";
+import { addPost } from "../services/add-post";
+import { IPost } from "../types/post";
 import "./styles.css";
 
 export default function Add() {
-    /* function handleSubmit(e: any) {
+    function handleSubmit(e: any) {
       e.preventDefault();
-      console.log('You clicked submit.');
-    } */
+      
+      const post: IPost = {
+        title: e.target.title.value,
+        description: e.target.description.value,
+        text: e.target.text.value,
+      }
+
+      addPost(post);
+    }
 
     return (
       <main className={styles.main}>
         <h1>Adicionar novo post</h1>
   
         <section>
-          <form /* onSubmit={handleSubmit} */>
+          <form onSubmit={handleSubmit}>
             <div>
-              <input type="text" placeholder="Título" />
+              <input name="title" type="text" placeholder="Título" />
             </div>
             <div>
-              <input type="text" placeholder="Descrição" />
+              <input name="description" type="text" placeholder="Descrição" />
             </div>
             <div>
-              <textarea placeholder="texto"></textarea>
+              <textarea name="text" placeholder="texto"></textarea>
             </div>
             <div>
               <button type="submit">Salvar</button>

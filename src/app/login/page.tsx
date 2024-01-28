@@ -1,13 +1,22 @@
-import styles from "../page.module.css";
+"use client";
+
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Login() {
-  return (
-    <main className={styles.main}>
-      <h1>Login</h1>
+  const { data: session } = useSession();
 
-      <div>
-          <p>Hoje vamos desenvolver um site bem legal utlizando o nextjs. Não perca!</p>
-      </div>
-    </main>
-  );
+  if (session) {
+    return (
+      <>
+        Signed in as  <br />
+        <button onClick={() => signOut()}>Sign out</button>
+      </>
+    )
+  }
+  return (
+    <>
+      Not signed in <br />
+      <button onClick={() => signIn()}>Sign in</button>
+    </>
+  )
 }
