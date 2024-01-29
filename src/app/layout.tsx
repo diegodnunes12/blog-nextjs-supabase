@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { SessionProvider } from "next-auth/react";
-import { Session } from "next-auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,27 +12,21 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-  session,
+  children
 }: Readonly<{
   children: React.ReactNode;
-  session: Session | null
 }>) {
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        {/* <SessionProvider session={session}>
-            
-        </SessionProvider> */}
-
-<nav>
-              <Link href="/"><h1>Blog do Diego</h1></Link>
-              <div>
-                <Link className="mr-10" href="/add">Novo Post</Link>
-                <Link href="/login">Login</Link>
-              </div>
-            </nav>
-            {children}
+        <nav>
+          <Link href="/"><h1>Blog do Diego</h1></Link>
+          <div>
+            <Link className="mr-10" href="/add">Novo Post</Link>
+            <Link href="/login">Login</Link>
+          </div>
+        </nav>
+        {children}
       </body>
     </html>
   );
